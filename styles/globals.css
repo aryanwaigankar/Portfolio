@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+.music-disk {
+  /* z-index: -1; */
+  animation: rotate 1s infinite;
+  animation-duration: 10s;
+}
+
+.audio-bars {
+  width: 4px;
+  height: 100%;
+  background-color: #d22b2b;
+  border-radius: 3px;
+  transform-origin: bottom;
+  content: "";
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.audio-bars-move {
+  animation: bounce 2.2s ease infinite alternate;
+
+  &:nth-of-type(2) {
+    animation-delay: -2.2s; /* Start at the end of animation */
+  }
+
+  &:nth-of-type(3) {
+    animation-delay: -3.7s; /* Start mid-way of return of animation */
+  }
+}
+
+@keyframes bounce {
+  10% {
+    transform: scaleY(0.3); /* start by scaling to 30% */
+  }
+
+  30% {
+    transform: scaleY(1); /* scale up to 100% */
+  }
+
+  60% {
+    transform: scaleY(0.5); /* scale down to 50% */
+  }
+
+  80% {
+    transform: scaleY(0.75); /* scale up to 75% */
+  }
+
+  100% {
+    transform: scaleY(0.6); /* scale down to 60% */
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #d22b2b;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+  /* border-radius: 2px; */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
