@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 
 const Navbar = ({ scrollTo, RevealOnScroll }) => {
   const navLinks = [
+    { name: "Home", id: "home" },
     { name: "About", id: "about" },
-    { name: "Career", id: "career" },
+    // { name: "Career", id: "career" },
     { name: "Projects", id: "projects" },
     { name: "Contact", id: "contact" },
   ];
@@ -88,7 +89,7 @@ const Navbar = ({ scrollTo, RevealOnScroll }) => {
                 return (
                   <li key={index}>
                     <a
-                      //   onClick={() => scrollTo(data?.id)}
+                      onClick={() => scrollTo(data?.id)}
                       //   href={"#"}
                       className="cursor-pointer group relative inline-block overflow-hidden mt-2 py-2 px-3 text-black hover:text-[#D22B2B]"
                     >

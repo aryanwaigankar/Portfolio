@@ -15,6 +15,7 @@ export const data = {
   github: "https://github.com/aryanwaigankar",
   linkedIn: "https://www.linkedin.com/in/aryanwaigankar/",
   subTitle: "A Frontend focused Web Developer.",
+  portfolioGithub: "https://github.com/aryanwaigankar/Portfolio",
   shortAbout:
     "I like to develop scalable Websites and Web Applications with great user experiences.",
   about:
@@ -67,7 +68,7 @@ export const data = {
       projectType: "Personal Project",
       image: "Bankist-Web.png",
       projectDescription: "Simple and clean Web design for a Banking Website.",
-      repoLink: "github",
+      repoLink: "https://github.com/aryanwaigankar/Bankist-web-page",
       websiteLink: "https://aryanwaigankar.github.io/Bankist-web-page/",
       technologies: ["HTML", "CSS", "JavaScript"],
     },
@@ -77,7 +78,7 @@ export const data = {
       image: "Mapty-Web.png",
       projectDescription:
         "A web app to track the locations of your recent workouts like running and cycling with your workout statistics. Select the location and track your data.",
-      repoLink: "github",
+      repoLink: "https://github.com/aryanwaigankar/Mapty",
       websiteLink: "https://aryanwaigankar.github.io/Mapty/",
       technologies: ["HTML", "CSS", "JavaScript", "Leaflet"],
     },
@@ -87,7 +88,7 @@ export const data = {
       image: "Bankist-Interface-Web.png",
       projectDescription:
         "An Online Banking web app with features like money transactions to other accounts and requesting loan",
-      repoLink: "github",
+      repoLink: "https://github.com/aryanwaigankar/Bankist-Interface",
       websiteLink: "https://aryanwaigankar.github.io/Bankist-Interface/",
       technologies: ["React JS", "HTML", "CSS", "Bootstrap", "JavaScript"],
     },

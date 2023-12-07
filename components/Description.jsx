@@ -26,10 +26,12 @@ const Description = ({ scrollTo }) => {
     let id = audioFile?.id + 1;
     if (id >= max) {
       setAudioFile(data?.songs[0]);
+      setAudioStatus(true);
       localStorage.setItem("songId", id);
     } else {
       setAudioFile(data?.songs[id]);
       localStorage.setItem("songId", id);
+      setAudioStatus(true);
     }
   };
 

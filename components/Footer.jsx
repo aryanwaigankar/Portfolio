@@ -8,7 +8,9 @@ const Footer = () => {
         Designed & Built by Aryan Waigankar
       </div>
       <div className="flex justify-center pb-4 cursor-pointer">
-        <GithubSvg fill="white" size="20" />
+        <a href="https://github.com/aryanwaigankar/Portfolio" target="_blank">
+          <GithubSvg fill="white" size="20" />
+        </a>
       </div>
     </div>
   );

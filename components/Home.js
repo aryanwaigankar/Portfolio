@@ -64,7 +64,10 @@ const HomeComponent = () => {
       <div className="hidden lg:block bg-[#D22B2B] fixed z-20 inset-0 top-[5.4rem] left-0 right-auto w-[6rem] pb-10 pl-8 pr-6 overflow-y-auto"></div>
 
       <RevealOnScroll>
-        <div className="lg:px-[9rem] xl:px-[12rem] px-[1rem] pt-[7rem] md:pt-[10rem]">
+        <div
+          id={"home"}
+          className="lg:px-[9rem] xl:px-[12rem] px-[1rem] pt-[7rem] md:pt-[10rem]"
+        >
           <Description scrollTo={scrollTo} />
         </div>
 
