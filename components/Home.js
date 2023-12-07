@@ -25,6 +25,7 @@ const HomeComponent = () => {
     const ref = useRef(null);
 
     useEffect(() => {
+      const refCurrent = ref.current;
       const scrollObserver = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
@@ -35,8 +36,8 @@ const HomeComponent = () => {
       scrollObserver.observe(ref.current);
 
       return () => {
-        if (ref.current) {
-          scrollObserver.unobserve(ref.current);
+        if (refCurrent) {
+          scrollObserver.unobserve(refCurrent);
         }
       };
     }, []);

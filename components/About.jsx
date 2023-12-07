@@ -50,7 +50,7 @@ const About = () => {
       <div className="flex flex-wrap py-2">
         {data?.skills?.map((skill, index) => {
           return (
-            <div className="m-2">
+            <div className="m-2" key={index}>
               <SkillsButton
                 name={skill?.name}
                 rating={skill?.rating}
