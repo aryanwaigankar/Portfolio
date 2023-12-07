@@ -1,3 +1,4 @@
+import { data } from "@/data/data";
 import React, { useEffect, useState } from "react";
 
 const Navbar = ({ scrollTo, RevealOnScroll }) => {
@@ -11,7 +12,7 @@ const Navbar = ({ scrollTo, RevealOnScroll }) => {
   const [showNav, setshowNav] = useState(false);
 
   const onButtonClick = () => {
-    const pdfUrl = "Aryan Waigankar Resume.pdf";
+    const pdfUrl = data?.resume;
     const link = document.createElement("a");
     link.href = pdfUrl;
     link.target = "_blank";

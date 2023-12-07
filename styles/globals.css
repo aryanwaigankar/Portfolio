@@ -28,16 +28,7 @@ body {
 .music-disk {
   /* z-index: -1; */
   animation: rotate 1s infinite;
-  animation-duration: 10s;
-}
-
-.audio-bars {
-  width: 4px;
-  height: 100%;
-  background-color: #d22b2b;
-  border-radius: 3px;
-  transform-origin: bottom;
-  content: "";
+  animation-duration: 15s;
 }
 
 @keyframes rotate {
@@ -47,6 +38,15 @@ body {
   100% {
     transform: rotateZ(360deg);
   }
+}
+
+.audio-bars {
+  width: 4px;
+  height: 100%;
+  background-color: #d22b2b;
+  border-radius: 3px;
+  transform-origin: bottom;
+  content: "";
 }
 
 .audio-bars-move {

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-const PlayerControls = ({ audioStatus, setAudioStatus, shadow = true }) => {
+const PlayerControls = ({
+  audioStatus,
+  setAudioStatus,
+  shadow = true,
+  changeSong,
+}) => {
   //   const [audioStatus, setAudioStatus] = useState(false);
   const toggleAudio = () => {
     let audio = document.getElementById("player");
@@ -57,7 +62,10 @@ const PlayerControls = ({ audioStatus, setAudioStatus, shadow = true }) => {
           </svg>
         </div>
 
-        <div className="cursor-pointer rounded-full p-1">
+        <div
+          className="cursor-pointer rounded-full p-1"
+          onClick={() => changeSong()}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"

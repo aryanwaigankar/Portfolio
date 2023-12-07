@@ -2,7 +2,16 @@ import GithubSvg from "@/icons/GithubSvg";
 import GoToSvg from "@/icons/GoToSvg";
 import React, { useState } from "react";
 
-function ProjectCard({ index = 1 }) {
+function ProjectCard({
+  index = 1,
+  name,
+  projectType,
+  image,
+  description,
+  technologies,
+  github,
+  website,
+}) {
   const isOdd = (num) => num % 2 === 1;
   return (
     <div>
@@ -13,8 +22,11 @@ function ProjectCard({ index = 1 }) {
           justifyContent: isOdd(index) ? "end" : "start",
         }}
       >
-        <div className="w-[60%] shadow-md  bg-red-700">
-          <img src="Bankist-Web.png" alt="" />
+        <div
+          className="!w-[60%] shadow-md  bg-red-700"
+          style={{ width: "60%" }}
+        >
+          <img src={image} alt="" />
         </div>
         <div
           className={`absolute top-0 ${
@@ -31,27 +43,26 @@ function ProjectCard({ index = 1 }) {
               className="text-[#D22B2B] font-semibold"
               style={{ textAlign: isOdd(index) ? "left" : "right" }}
             >
-              Personal Project
+              {projectType}
             </div>
             <div
               className="text-xl font-semibold"
               style={{ textAlign: isOdd(index) ? "left" : "right" }}
             >
-              Bankist Web Page
+              {name}
             </div>
           </div>
           <div
             className="my-2 text-left py-5 px-1 bg-white shadow-md text-lg"
             style={{ opacity: 0.9 }}
           >
-            some text about projectanskdjakdjsakdja kajsdkajd kasj askdjakd
-            fjsdfdsfhdf eiwuriwjqd
+            {description}
           </div>
           <div
             className="text-[#D22B2B] font-semibold"
             style={{ textAlign: isOdd(index) ? "left" : "right" }}
           >
-            React Tailwind HTML CSS
+            {technologies?.join(" ")}
           </div>
           <div
             className="text-[#D22B2B] font-semibold space-x-5 flex my-2 items-end justify-end"
@@ -62,10 +73,14 @@ function ProjectCard({ index = 1 }) {
             }}
           >
             <div className="cursor-pointer">
-              <GithubSvg size="25" />
+              <a href={github} target="_blank">
+                <GithubSvg size="25" />
+              </a>
             </div>
             <div className="cursor-pointer">
-              <GoToSvg size="25" />
+              <a href={website} target="_blank">
+                <GoToSvg size="25" />
+              </a>
             </div>
           </div>
         </div>

@@ -87,7 +87,7 @@ const HomeComponent = () => {
 
       <div
         id="projects"
-        className="lg:px-[9rem] xl:px-[12rem] px-[1rem] pt-[8rem]"
+        className="lg:px-[9rem] xl:px-[12rem] px-[1rem] pt-[5rem]"
       >
         <RevealOnScroll>
           <Projects />

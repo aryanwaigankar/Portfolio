@@ -1,4 +1,5 @@
 import SkillsButton from "@/common/SkillsButton";
+import { data } from "@/data/data";
 import React from "react";
 
 const About = () => {
@@ -22,30 +23,16 @@ const About = () => {
               // filter: "blur(3px)",
             }}
           >
-            {`Hello! I'm Aryan, a Mumbai-based Frontend Developer with over a year
-          of hands-on experience since completing my BSc in Computer Science in
-          2022. I specialize in crafting user-friendly websites and web
-          applications. Beyond coding, I find joy in music and football. Check
-          out my portfolio to explore the seamless fusion of technology and
-          creativity in my work. Let's collaborate and bring your digital ideas
-          to life!`}
+            {data?.about}
           </div>
-          <div className="py-1 absolute top-1 left-0 px-1">
-            {`Hello! I'm Aryan, a Mumbai-based Frontend Developer with over a year
-          of hands-on experience since completing my BSc in Computer Science in
-          2022. I specialize in crafting user-friendly websites and web
-          applications. Beyond coding, I find joy in music and football. Check
-          out my portfolio to explore the seamless fusion of technology and
-          creativity in my work. Let's collaborate and bring your digital ideas
-          to life!`}
-          </div>
+          <div className="py-1 absolute top-1 left-0 px-1">{data?.about}</div>
         </div>
 
         <div className="w-[50%] relative group hidden lg:block">
           <div
             className="shadow-sm bg-white absolute translate-x-3 -translate-y-3 h-full w-full"
             style={{
-              backgroundImage: "url(profile.jpg)",
+              backgroundImage: `url(${data?.aboutImage})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -61,9 +48,17 @@ const About = () => {
         Here are some of my Technical Skills:
       </div>
       <div className="flex flex-wrap py-2">
-        <div className="m-2">
-          <SkillsButton />
-        </div>
+        {data?.skills?.map((skill, index) => {
+          return (
+            <div className="m-2">
+              <SkillsButton
+                name={skill?.name}
+                rating={skill?.rating}
+                icon={skill?.icon}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );

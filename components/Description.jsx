@@ -1,10 +1,12 @@
 import PlayerControls from "@/common/PlayerControls";
+import { data } from "@/data/data";
 import React, { useEffect, useState } from "react";
 
 const Description = ({ scrollTo }) => {
   const secondaryDescriptionClasses =
     "max-w-[30rem] border border-[#D22B2B] rounded-sm p-2 text-sm lg:text-lg";
 
+  const [audioFile, setAudioFile] = useState("");
   const [audioStatus, setAudioStatus] = useState(false);
   const [tip, setTip] = useState(false);
 
@@ -19,12 +21,32 @@ const Description = ({ scrollTo }) => {
     }
   };
 
+  const changeSong = () => {
+    let max = data?.songs?.length;
+    let id = audioFile?.id + 1;
+    if (id >= max) {
+      setAudioFile(data?.songs[0]);
+      localStorage.setItem("songId", id);
+    } else {
+      setAudioFile(data?.songs[id]);
+      localStorage.setItem("songId", id);
+    }
+  };
+
+  // useEffect(() => {
+  //   let audio = document.getElementById("player");
+  //   if (audioFile) {
+  //     audio.play();
+  //     setAudioStatus(true);
+  //   }
+  // }, [audioFile]);
+
   useEffect(() => {
-    // let audio = document.getElementById("player");
-    // audio.play();
-    // audio.volume = 0.5;
-    // setAudioStatus(true);
-  }, []);
+    localStorage.getItem("songId") &&
+    localStorage.getItem("songId") < data?.songs?.length
+      ? setAudioFile(data?.songs[localStorage.getItem("songId")])
+      : setAudioFile(data?.songs[0]);
+  }, [data]);
 
   return (
     <div className="py-5 flex w-full">
@@ -32,23 +54,23 @@ const Description = ({ scrollTo }) => {
         <p className="text-md lg:text-lg">Hi, my name is</p>
         {/* <div className="relative"> */}
         <div className="cursor-none py-1 !mb-2 animate-text bg-gradient-to-r from-black via-[#D22B2B] to-black bg-clip-text text-transparent text-2xl lg:text-5xl font-black">
-          Aryan Waigankar.
+          {data?.name}.
         </div>
         <div className="my-2">
           <span className="mt-2 bg-[#D22B2B] p-1 text-white text-sm lg:text-lg">
-            A Frontend focused Web Developer.
+            {data?.subTitle}
           </span>
         </div>
         <div className=" mt-[3rem] lg:mt-[5rem] relative cursor-pointer">
           <div
             className={`${secondaryDescriptionClasses} bg-[#D22B2B] text-[#D22B2B]`}
           >
-            {`I like to develop scalable Websites and Web Applications with great user experiences.`}
+            {data?.shortAbout}
           </div>
           <div
             className={`${secondaryDescriptionClasses}  absolute top-0 bg-white -translate-y-2 translate-x-2 lg:-translate-y-3 lg:translate-x-3 left-0`}
           >
-            {`I like to develop scalable Websites and Web Applications with great user experiences.`}
+            {data?.shortAbout}
           </div>
         </div>
         {/* </div> */}
@@ -61,10 +83,10 @@ const Description = ({ scrollTo }) => {
       >
         <audio
           id="player"
-          src={"Memory Reboot.mp3"}
+          src={audioFile?.audio}
           autoPlay
           loop
-          playing={true}
+          playing={audioStatus}
         />
         {tip && (
           <div className="absolute top-8 left-5 border border-[#D22B2B] p-1 rounded-md">
@@ -77,7 +99,7 @@ const Description = ({ scrollTo }) => {
         <div
           className="shadow-sm bg-white absolute left-5 h-[10rem] w-[10rem]"
           style={{
-            backgroundImage: "url(memoryReboot.jpg)",
+            backgroundImage: `url(${audioFile?.image})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
@@ -98,7 +120,7 @@ const Description = ({ scrollTo }) => {
             style={{
               height: "5rem",
               width: "5rem",
-              backgroundImage: "url(memoryReboot.jpg)",
+              backgroundImage: `url(${audioFile?.image})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -118,6 +140,7 @@ const Description = ({ scrollTo }) => {
           <PlayerControls
             audioStatus={audioStatus}
             setAudioStatus={setAudioStatus}
+            changeSong={changeSong}
           />
         </div>
 
@@ -135,8 +158,8 @@ const Description = ({ scrollTo }) => {
               />
             </div>
             <div>
-              <div className="font-bold text-[#D22B2B]">Memory Reboot</div>
-              <div className="text-sm">Narvent and VØJ</div>
+              <div className="font-bold text-[#D22B2B]">{audioFile?.name}</div>
+              <div className="text-sm">{audioFile?.artists}</div>
             </div>
           </div>
         </div>

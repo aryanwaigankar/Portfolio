@@ -1,3 +1,4 @@
+import { data } from "@/data/data";
 import GithubSvg from "@/icons/GithubSvg";
 import LinkedInSvg from "@/icons/LinkedInSvg";
 import MailSvg from "@/icons/MailSvg";
@@ -41,14 +42,20 @@ const ToolBox = ({ audioStatus, setAudioStatus }) => {
         </div>
       )} */}
       <div className="my-5 cursor-pointer">
-        <GithubSvg size="24" fill="#D22B2B" />
+        <a href={data?.github} target="_blank">
+          <GithubSvg size="24" fill="#D22B2B" />
+        </a>
       </div>
-      <div className="my-5 cursor-pointer">
-        <LinkedInSvg size="24" fill="#D22B2B" />
-      </div>
-      <div className="my-5 cursor-pointer">
-        <MailSvg size="24" fill="#D22B2B" />
-      </div>
+      <a href={data?.linkedIn} target="_blank">
+        <div className="my-5 cursor-pointer">
+          <LinkedInSvg size="24" fill="#D22B2B" />
+        </div>
+      </a>
+      <a href={`mailto:${data?.email}`}>
+        <div className="my-5 cursor-pointer">
+          <MailSvg size="24" fill="#D22B2B" />
+        </div>
+      </a>
     </div>
   );
 };

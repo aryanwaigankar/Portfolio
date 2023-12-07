@@ -1,13 +1,17 @@
 import DockerSvg from "@/icons/DockerSvg";
 import React from "react";
 
-const SkillsButton = ({ name = "Docker", rating = 5 }) => {
+const SkillsButton = ({
+  name = "Javascript (ES6+)",
+  rating = 5,
+  icon = false,
+}) => {
   let stars = [];
   for (let i = 1; i <= rating; i++) {
     stars.push(i);
   }
   return (
-    <button className="btn relative inline-flex border border-red-500 rounded-md items-center justify-start overflow-hidden transition-all bg-white hover:bg-white group">
+    <button className="btn relative inline-flex border border-[#D22B2B] rounded-md items-center justify-start overflow-hidden transition-all bg-white hover:bg-white group">
       {/* purple box */}
       {stars?.length > 0 && (
         <span className="w-0 h-full space-x-1 rounded bg-[#D22B2B] text-center flex items-center justify-center text-white absolute top-0 left-0 ease-out duration-500 transition-all group-hover:w-full -z-1">
@@ -28,11 +32,11 @@ const SkillsButton = ({ name = "Docker", rating = 5 }) => {
         </span>
       )}
       <span
-        className={`w-full min-w-[9rem] px-1 py-2 text-[#D22B2B] transition-colors space-x-1 justify-center items-center flex duration-300 ease-in-out ${
+        className={`w-full min-w-[9rem] px-1 py-2 text-[#D22B2B] transition-colors space-x-2 justify-center items-center flex duration-300 ease-in-out ${
           stars?.length > 0 && "group-hover:text-opacity-0"
         } z-10`}
       >
-        <DockerSvg size={"1.5rem"} />
+        {icon && <span style={{ marginRight: "4px" }}>{icon}</span>}
         {name}
       </span>
     </button>
