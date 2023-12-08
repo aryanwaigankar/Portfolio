@@ -11,13 +11,17 @@ const SkillsButton = ({
     stars.push(i);
   }
   return (
-    <button className="btn relative inline-flex border border-[#D22B2B] rounded-md items-center justify-start overflow-hidden transition-all bg-white hover:bg-white group">
+    <button
+      className="btn relative w-full !min-w-[9rem] inline-flex border border-[#D22B2B] rounded-md items-center justify-start overflow-hidden transition-all bg-white hover:bg-white group"
+      style={{ minWidth: "9rem" }}
+    >
       {/* purple box */}
       {stars?.length > 0 && (
         <span className="w-0 h-full space-x-1 rounded bg-[#D22B2B] text-center flex items-center justify-center text-white absolute top-0 left-0 ease-out duration-500 transition-all group-hover:w-full -z-1">
           {stars?.slice(0, 5)?.map((data) => {
             return (
               <svg
+                style={{ margin: "0 2px" }}
                 xmlns="http://www.w3.org/2000/svg"
                 width="1rem"
                 height="1rem"
