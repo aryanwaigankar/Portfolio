@@ -89,7 +89,10 @@ const Navbar = ({ scrollTo, RevealOnScroll }) => {
                 return (
                   <li key={index}>
                     <a
-                      onClick={() => scrollTo(data?.id)}
+                      onClick={() => {
+                        scrollTo(data?.id);
+                        setshowNav(false);
+                      }}
                       //   href={"#"}
                       className="cursor-pointer group relative inline-block overflow-hidden mt-2 py-2 px-3 text-black hover:text-[#D22B2B]"
                     >

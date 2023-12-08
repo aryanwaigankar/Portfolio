@@ -8,6 +8,9 @@ import Projects from "./Projects";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import ToolBox from "./ToolBox";
+import GithubSvg from "@/icons/GithubSvg";
+import LinkedInSvg from "@/icons/LinkedInSvg";
+import { data } from "@/data/data";
 
 const HomeComponent = () => {
   const [audioStatus, setAudioStatus] = useState(false);
@@ -77,6 +80,18 @@ const HomeComponent = () => {
             name={"More About Me"}
             onClick={() => scrollTo("about", "start")}
           />
+        </div>
+        <div className="flex items-center lg:hidden p-4">
+          <a
+            className="cursor-pointer mr-2"
+            href={data?.github}
+            target="_blank"
+          >
+            <GithubSvg size="20" fill={"#D22B2B"} />
+          </a>
+          <a className="cursor-pointer" href={data?.linkedIn} target="_blank">
+            <LinkedInSvg size="20" fill={"#D22B2B"} />
+          </a>
         </div>
       </RevealOnScroll>
 
